@@ -21,6 +21,7 @@ pipeline {
       } 
       stage('Docker Build and Push') {
         steps {
+          sh 'alias'
           withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
            sh 'printenv'
            sh 'sudo docker build -t drdmytro/numeric-app:""$GIT_COMMIT"" .'
